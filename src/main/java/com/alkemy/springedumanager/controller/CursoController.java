@@ -25,10 +25,7 @@ public class CursoController {
         return "cursos/list";
     }
 
-    /**
-     * Solo el rol ADMIN puede ver el formulario y crear cursos nuevos
-     * (ademas de estar restringido a nivel de SecurityConfig).
-     */
+  
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/nuevo")
     public String formularioNuevo(Model model) {

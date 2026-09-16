@@ -14,11 +14,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Carga datos de ejemplo la primera vez que arranca la aplicacion, para que
- * se pueda probar el flujo completo (estudiantes, cursos, evaluaciones) sin
- * tener que cargar nada a mano. Si ya existen datos, no hace nada.
- */
+
 @Component
 public class DataSeeder implements CommandLineRunner {
 
@@ -48,9 +44,9 @@ public class DataSeeder implements CommandLineRunner {
         javiera.setCursos(new HashSet<>(Set.of(java, spring)));
         javiera = estudianteRepository.save(javiera);
 
-        Estudiante matias = new Estudiante("Matias Rojas", "matias@untec.cl");
-        matias.setCursos(new HashSet<>(Set.of(java, frontend)));
-        matias = estudianteRepository.save(matias);
+        Estudiante felipe = new Estudiante("Felipe Galarce", "felipe@untec.cl");
+        felipe.setCursos(new HashSet<>(Set.of(java, frontend)));
+        felipe = estudianteRepository.save(felipe);
 
         Estudiante camila = new Estudiante("Camila Soto", "camila@untec.cl");
         camila.setCursos(new HashSet<>(Set.of(spring, frontend)));
@@ -58,7 +54,7 @@ public class DataSeeder implements CommandLineRunner {
 
         evaluacionRepository.save(new Evaluacion(javiera, java, TipoEvaluacion.PRACTICA, 6.5, LocalDate.now().minusDays(10)));
         evaluacionRepository.save(new Evaluacion(javiera, spring, TipoEvaluacion.EVALUACION, 6.8, LocalDate.now().minusDays(2)));
-        evaluacionRepository.save(new Evaluacion(matias, java, TipoEvaluacion.EVALUACION, 5.9, LocalDate.now().minusDays(5)));
+        evaluacionRepository.save(new Evaluacion(felipe, java, TipoEvaluacion.EVALUACION, 5.9, LocalDate.now().minusDays(5)));
         evaluacionRepository.save(new Evaluacion(camila, frontend, TipoEvaluacion.PRACTICA, 7.0, LocalDate.now().minusDays(1)));
     }
 }

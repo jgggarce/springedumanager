@@ -6,11 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
-/**
- * Permite que los formularios (por ejemplo el de evaluaciones) enlacen un
- * <select> que envia el id del estudiante directamente a un campo
- * {@code Estudiante} del modelo.
- */
+
 @Component
 public class StringToEstudianteConverter implements Converter<String, Estudiante> {
 

@@ -9,14 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * API REST de estudiantes (Leccion 5). Las lecturas (GET) requieren solo
- * estar autenticado; las escrituras (POST/PUT/DELETE) requieren rol ADMIN,
- * segun lo configurado en SecurityConfig para /api/**.
- *
- * <p>Se puede probar con Postman usando autenticacion Basic Auth con
- * cualquiera de los usuarios definidos en application.properties.</p>
- */
 @RestController
 @RequestMapping("/api/estudiantes")
 public class EstudianteRestController {

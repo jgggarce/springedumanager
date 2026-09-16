@@ -48,12 +48,11 @@
         </dependency>
 
         <!-- Integracion de Spring Security con las vistas Thymeleaf (sec:authorize) -->
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity6</artifactId>
-            <version>3.1.2.1</version>
-        </dependency>
-
+        
+   <dependency>
+    <groupId>org.thymeleaf.extras</groupId>
+    <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+</dependency>
         <!-- Validacion de formularios -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -9,11 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * API REST de cursos (Leccion 5). Mismas reglas de seguridad que
- * {@link EstudianteRestController}: GET requiere estar autenticado,
- * POST/PUT/DELETE requieren rol ADMIN.
- */
+
 @RestController
 @RequestMapping("/api/cursos")
 public class CursoRestController {

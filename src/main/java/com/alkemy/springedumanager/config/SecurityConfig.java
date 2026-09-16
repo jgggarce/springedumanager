@@ -19,18 +19,10 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-/**
- * Configuracion de seguridad (Leccion 4).
- *
- * <p>Los usuarios de demostracion (uno con rol ADMIN y otro con rol USER)
- * se leen desde {@code application.properties} tal como pide la consigna.
- * Se definen dos cadenas de filtros: una con autenticacion HTTP Basic para
- * la API REST ({@code /api/**}), pensada para probarse desde Postman, y otra
- * con formulario de login para las vistas web.</p>
- */
+
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity // habilita @PreAuthorize en los controladores
+@EnableMethodSecurity 
 public class SecurityConfig {
 
     @Value("${app.security.admin.username}")
@@ -65,11 +57,7 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(admin, user);
     }
 
-    /**
-     * Cadena de seguridad para la API REST (Leccion 5): sin sesion, con
-     * autenticacion basica para poder probarse facilmente con Postman o
-     * RestTemplate.
-     */
+    
     @Bean
     @Order(1)
     public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -87,9 +75,7 @@ public class SecurityConfig {
         return http.build();
     }
 
-    /**
-     * Cadena de seguridad para las vistas web (formulario de login).
-     */
+    
     @Bean
     @Order(2)
     public SecurityFilterChain webSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -110,7 +96,7 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 )
-                // La consola de H2 usa <frame>, que Spring Security bloquea por defecto.
+                
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
                 .csrf(csrf -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")));
 

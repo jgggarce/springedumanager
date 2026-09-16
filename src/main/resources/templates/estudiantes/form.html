@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo estudiante</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="contenedor contenedor-angosto">
+    <h1>Nuevo estudiante</h1>
+
+    <form class="formulario" th:action="@{/estudiantes/nuevo}" th:object="${estudiante}" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required/>
+        <p class="mensaje-error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error</p>
+
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" th:field="*{correo}" required/>
+        <p class="mensaje-error" th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}">Error</p>
+
+        <label>Cursos</label>
+        <div class="checkbox-lista">
+            <label class="checkbox-item" th:each="curso : ${cursos}">
+                <input type="checkbox" th:field="*{cursos}" th:value="${curso.id}"/>
+                <span th:text="${curso.nombre}">Curso</span>
+            </label>
+        </div>
+
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo registro</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="contenedor contenedor-angosto">
+    <h1>Nueva practica / evaluacion</h1>
+
+    <form class="formulario" th:action="@{/evaluaciones/nuevo}" th:object="${evaluacion}" method="post">
+        <label for="estudiante">Estudiante</label>
+        <select id="estudiante" th:field="*{estudiante}" required>
+            <option value="">-- Selecciona --</option>
+            <option th:each="est : ${estudiantes}" th:value="${est.id}" th:text="${est.nombre}">Nombre</option>
+        </select>
+        <p class="mensaje-error" th:if="${#fields.hasErrors('estudiante')}" th:errors="*{estudiante}">Error</p>
+
+        <label for="curso">Curso</label>
+        <select id="curso" th:field="*{curso}" required>
+            <option value="">-- Selecciona --</option>
+            <option th:each="c : ${cursos}" th:value="${c.id}" th:text="${c.nombre}">Curso</option>
+        </select>
+        <p class="mensaje-error" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}">Error</p>
+
+        <label for="tipo">Tipo</label>
+        <select id="tipo" th:field="*{tipo}" required>
+            <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}">TIPO</option>
+        </select>
+
+        <label for="nota">Nota</label>
+        <input type="number" id="nota" step="0.1" min="1.0" max="7.0" th:field="*{nota}" required/>
+        <p class="mensaje-error" th:if="${#fields.hasErrors('nota')}" th:errors="*{nota}">Error</p>
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" th:field="*{fecha}"/>
+
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+</body>
+</html>

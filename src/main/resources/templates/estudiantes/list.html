@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Estudiantes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="contenedor">
+    <div class="encabezado">
+        <h1>Estudiantes</h1>
+        <a class="boton-link" th:href="@{/estudiantes/nuevo}">+ Nuevo estudiante</a>
+    </div>
+
+    <table class="tabla">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Cursos inscritos</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="estudiante : ${estudiantes}">
+            <td th:text="${estudiante.nombre}">Nombre</td>
+            <td th:text="${estudiante.correo}">correo@ejemplo.com</td>
+            <td>
+                <span th:each="curso, iter : ${estudiante.cursos}">
+                    <span th:text="${curso.nombre}">Curso</span><span th:if="${!iter.last}">, </span>
+                </span>
+                <span th:if="${estudiante.cursos.isEmpty()}">-</span>
+            </td>
+            <td>
+                <form th:action="@{/estudiantes/{id}/eliminar(id=${estudiante.id})}" method="post">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

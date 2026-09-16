@@ -1,0 +1,245 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f4f7;
+    margin: 0;
+    color: #1f2937;
+}
+
+h1 {
+    color: #1e3a5f;
+}
+
+.contenedor-login {
+    max-width: 380px;
+    margin: 80px auto;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.subtitulo {
+    color: #555555;
+    font-size: 14px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 16px;
+}
+
+.formulario label {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.formulario input,
+.formulario select {
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.formulario button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #1e3a5f;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.formulario button:hover {
+    background-color: #16304d;
+}
+
+.checkbox-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal !important;
+    margin-top: 0 !important;
+}
+
+.mensaje-error {
+    background-color: #fdecea;
+    color: #b3261e;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    margin: 4px 0 0 0;
+}
+
+.mensaje-ok {
+    background-color: #e6f4ea;
+    color: #1e7e34;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.ayuda {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #888888;
+}
+
+.menu {
+    background-color: #1e3a5f;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-titulo {
+    color: #ffffff;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+.menu-usuario {
+    color: #cfe0f2;
+    font-size: 14px;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.form-logout {
+    margin: 0;
+}
+
+.form-logout button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.contenedor {
+    max-width: 960px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.contenedor-angosto {
+    max-width: 480px;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boton-link {
+    background-color: #1e3a5f;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.boton-link:hover {
+    background-color: #16304d;
+}
+
+.tarjetas {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.tarjeta {
+    flex: 1 1 200px;
+    background-color: #f2f4f7;
+    border-radius: 8px;
+    padding: 16px;
+    text-decoration: none;
+    color: #1f2937;
+}
+
+.tarjeta:hover {
+    background-color: #e5e9ef;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.tabla th, .tabla td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.tabla th {
+    background-color: #f2f4f7;
+}
+
+.tabla button {
+    padding: 6px 10px;
+    background-color: #b3261e;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.tabla button:hover {
+    background-color: #8f1e17;
+}
+
+.etiqueta-practica {
+    background-color: #fff4e5;
+    color: #9a6700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.etiqueta-evaluacion {
+    background-color: #e6f4ea;
+    color: #1e7e34;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}

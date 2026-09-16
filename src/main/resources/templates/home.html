@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringEduManager - Inicio</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="contenedor">
+    <h1>Bienvenida a SpringEduManager</h1>
+    <p>Desde aqui puedes gestionar estudiantes, cursos y sus evaluaciones o practicas.</p>
+    <div class="tarjetas">
+        <a class="tarjeta" th:href="@{/estudiantes}">
+            <h2>Estudiantes</h2>
+            <p>Registrar y consultar estudiantes.</p>
+        </a>
+        <a class="tarjeta" th:href="@{/cursos}">
+            <h2>Cursos</h2>
+            <p>Ver el catalogo de cursos disponibles.</p>
+        </a>
+        <a class="tarjeta" th:href="@{/evaluaciones}">
+            <h2>Evaluaciones</h2>
+            <p>Registrar notas de practicas y evaluaciones.</p>
+        </a>
+    </div>
+</div>
+</body>
+</html>

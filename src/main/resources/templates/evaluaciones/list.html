@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluaciones</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="contenedor">
+    <div class="encabezado">
+        <h1>Evaluaciones y practicas</h1>
+        <a class="boton-link" th:href="@{/evaluaciones/nuevo}">+ Nuevo registro</a>
+    </div>
+
+    <table class="tabla">
+        <thead>
+        <tr>
+            <th>Estudiante</th>
+            <th>Curso</th>
+            <th>Tipo</th>
+            <th>Nota</th>
+            <th>Fecha</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="evaluacion : ${evaluaciones}">
+            <td th:text="${evaluacion.estudiante.nombre}">Estudiante</td>
+            <td th:text="${evaluacion.curso.nombre}">Curso</td>
+            <td>
+                <span th:classappend="${evaluacion.tipo.name() == 'PRACTICA'} ? 'etiqueta-practica' : 'etiqueta-evaluacion'"
+                      th:text="${evaluacion.tipo}">TIPO</span>
+            </td>
+            <td th:text="${evaluacion.nota}">0.0</td>
+            <td th:text="${evaluacion.fecha}">2026-01-01</td>
+            <td>
+                <form th:action="@{/evaluaciones/{id}/eliminar(id=${evaluacion.id})}" method="post">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
